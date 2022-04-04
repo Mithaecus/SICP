@@ -1,10 +1,10 @@
 #lang scribble/manual
 
-@title{Chapter One - Building Abstractions with Procedures}
+@title{Structure and Interpretation of Computer Programs}
 
-@section{The Elements of Programming}
+@section{Chapter 1}
 
-@subsection{Exercises}
+@subsection{The Elements of Programming}
 
 @subsubsection{Exercise 1.1}
 
