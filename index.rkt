@@ -72,3 +72,43 @@
 }|
 
 If @(italic "b") is greater than @(italic "0"), add @(italic "a") and @(italic "b"). Otherwise, substract @(italic "b") from @(italic "a").
+
+@subsubsection{Exercise 1.5}
+
+@(italic "How does the following code change if it's ran using applicative-order evaluation vs normal-order evaluation?")
+
+@codeblock|{
+(define (p) (p))
+(define (test x y)
+    (if (= x 0) 0 y))
+
+(test 0 (p))
+}|
+
+Normal-order evaluation:
+
+@codeblock|{
+(test 0 (p))
+
+(if (= 0 0) 0 (p))
+(p)
+(p)
+(p)
+...
+}|
+
+Normal-order fully expands and then reduces so when it reaches @(italic "(p)") it'll expand an infinitely recusrive function meaning the interpreter will not finish. 
+
+Applicative-order evaluation:
+
+@codeblock|{
+(test 0 (p))
+
+(if (= 0 0) 0 (p))
+0
+}|
+
+Applicative-order only evaluates what is required to run, so it'll see @(italic "(= 0 0)") as @(italic "#t") and return without evaluating the infinite loop. 
+
+@subsubsection{Exercise 1.6}
+
